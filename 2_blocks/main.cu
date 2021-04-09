@@ -6,7 +6,10 @@ __global__ void hello_cuda() {
 
 int main() {
 
-	hello_cuda<<<2,1>>>();;
+	dim3 block(4);
+	dim3 grid(8);
+
+	hello_cuda<<<grid, block>>>();;
 	cudaDeviceSynchronize();
 
 	cudaDeviceReset();
